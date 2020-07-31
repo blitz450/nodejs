@@ -11,5 +11,4 @@ var storage = multer.diskStorage({
   })
 
 
-  module.exports = {
-    storage: storage}
+  module.exports = multer({ storage });
