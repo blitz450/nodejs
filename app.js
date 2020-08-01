@@ -27,6 +27,11 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
+// catch 404 and forward to error handler
+app.use(function(req, res) {
+    res.render('404');
+  });
+  
 //connect to port
 app.listen(PORT, () => {
   console.log(`Listening on PORT ${PORT}`);
