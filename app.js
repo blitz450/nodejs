@@ -1,7 +1,11 @@
 const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const morgan = require("morgan");
 const app = express();
 const path = require('path');
 const mongoose = require("mongoose");
+
 const PORT = 3000;
 
 var upload = require('./utils/upload');
@@ -14,6 +18,16 @@ mongoose.connect("mongodb://127.0.0.1:27017", { useNewUrlParser: true }, (error)
         console.log("Error connecting to database!")
     }
 });
+
+//use cors
+app.use(cors())
+
+//use body-parser
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+//use morgan
+app.use(morgan('dev'))
 
 //use public folder
 app.use(express.static('public'))
@@ -31,3 +45,4 @@ app.get('/', function(req, res) {
 app.listen(PORT, () => {
   console.log(`Listening on PORT ${PORT}`);
 });
+
