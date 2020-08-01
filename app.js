@@ -41,6 +41,11 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
+// about page 
+app.get('/about', function(req, res) {
+    res.render('about');
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res) {
     res.render('404');
