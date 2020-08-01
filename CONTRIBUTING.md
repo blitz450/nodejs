@@ -20,7 +20,10 @@ When contributing to this repository, please follow the following instructions:
 
    These steps will clone your forked repo into your local. Optionally, use the following command to check your remote URLs:
 
-   `git remote -v`
+   ```
+   git remote -v
+   ```
+   
    **Expected output:**
 
    ```
@@ -40,7 +43,9 @@ When contributing to this repository, please follow the following instructions:
 
       This step will add new remote URL named "upstream". This will be used to keep your forked repo updated with main repo. Optionally, use the following command to check your remote URLs:
 
-    	`git remote -v`
+      ```
+    	git remote -v
+      ```
 
     	**Expected output:**
       ```
@@ -69,10 +74,10 @@ After the aforementioned setup, follow these steps everytime you are assigned an
 2.  Branch out to a new branch for the issue you will work on.  
     Branch name should follow the format: 'issue#' , where # is the issue number.
 
-        	 To create a new branch and switch to it at the same time, you can run:
-        	 ```
-        	git checkout -b issue#
-        	 ```
+    To create a new branch and switch to it at the same time, you can run:
+    ```
+    git checkout -b issue#
+    ```
 
 3.  Install npm modules
 
