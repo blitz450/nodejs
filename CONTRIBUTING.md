@@ -115,4 +115,4 @@ Repeat this flow everytime you start working on new issue.
 
 - [Saurabh Chauhan](https://github.com/blitz450)
 - [Irshad Ansari](https://github.com/irshadjsr21)
-- [Kumari Shivani Singh](https://github.com/kumarishivanisingh14)
+
