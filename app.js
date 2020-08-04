@@ -10,11 +10,12 @@ const PORT = 3000;
 
 var upload = require('./utils/upload');
 
-
-mongoose.connect("mongodb://127.0.0.1:27017", { useNewUrlParser: true }, (error)=> {
-    if(!error){
+mongoose.connect("mongodb://127.0.0.1:27017", {
+    useNewUrlParser: true
+}, (error) => {
+    if (!error) {
         console.log("Success Connected!");
-    } else{
+    } else {
         console.log("Error connecting to database!")
     }
 });
@@ -23,7 +24,9 @@ mongoose.connect("mongodb://127.0.0.1:27017", { useNewUrlParser: true }, (error)
 app.use(cors())
 
 //use body-parser
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
 app.use(bodyParser.json())
 
 //use morgan
@@ -37,27 +40,41 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // index page 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
     res.render('index');
 });
 
 // about page 
-app.get('/about', function(req, res) {
+app.get('/about', function (req, res) {
     res.render('about');
 });
 
 // contact page 
-app.get('/contact', function(req, res) {
+app.get('/contact', function (req, res) {
     res.render('contact');
 });
 
-// catch 404 and forward to error handler
-app.use(function(req, res) {
-    res.render('404');
-  });
-  
-//connect to port
-app.listen(PORT, () => {
-  console.log(`Listening on PORT ${PORT}`);
+// login page 
+app.get('/login', function (req, res) {
+    res.render('login');
 });
 
+// signup page 
+app.get('/signup', function (req, res) {
+    res.render('signup');
+});
+
+// upload page 
+app.get('/upload', function (req, res) {
+    res.render('upload');
+});
+
+// catch 404 and forward to error handler
+app.use(function (req, res) {
+    res.render('404');
+});
+
+//connect to port
+app.listen(PORT, () => {
+    console.log(`Listening on PORT ${PORT}`);
+});
