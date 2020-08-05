@@ -70,6 +70,12 @@ app.get('/upload', function (req, res) {
 });
 
 
+// upload post  
+app.post('/upload', upload.single('mypic'), (req, res) => {
+    console.log(req.body);
+    console.log('Name ', req.file.filename);
+    res.send('Uploaded');
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res) {

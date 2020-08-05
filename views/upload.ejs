@@ -107,11 +107,18 @@ fieldset {
         <%- include('partials/header') %>
             <h1>Study Resources</h1>
             <div class="container">  
-              
-               
                 
-              </div>
-        
+                <form id="contact"enctype="multipart/form-data" action="/upload" method="post">
+                    <h3>Form</h3>
+                    <fieldset>
+                        <label>Upload Image</label>
+                        <input type="file" name="mypic" class="file" accept=".jpg, .png, .jpeg, image/*" required/>
+                    </fieldset>                 
+                    <fieldset>
+                        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Upload</button>
+                      </fieldset>              
+                    </form>
+              </div>   
         <%- include('partials/footer') %>
     </div>
 </body>
