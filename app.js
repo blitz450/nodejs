@@ -69,12 +69,7 @@ app.get('/upload', function (req, res) {
     res.render('upload');
 });
 
-// upload post  
-app.post('/upload', function (req, res) {
-    var name = req.body.name;
-    console.log('Your Name is ', name);
-    res.send('Name Uploaded');
-});
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res) {
