@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const app = express();
 const path = require('path');
 const mongoose = require("mongoose");
+let Data = require('./models/resource');
 
 const PORT = 3000;
 
@@ -79,11 +80,12 @@ app.post('/upload', upload.single('mypic'), (req, res) => {
         console.log(err);
         return;
       } else {
-            console.log('data added');}    
+            console.log('data added');
+            res.send('Uploaded');
+        }    
     });
 console.log(req.body);
-console.log('Name ', req.file.filename);
-});
+console.log('Name ', req.file.filename);});
 
 // catch 404 and forward to error handler
 app.use(function (req, res) {
