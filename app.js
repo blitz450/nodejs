@@ -6,6 +6,7 @@ const app = express();
 const path = require('path');
 const mongoose = require("mongoose");
 let Data = require('./models/resource');
+let User = require('./models/users');
 
 const PORT = 3000;
 
@@ -83,14 +84,25 @@ app.post('/signup', function (req, res) {
     var gender= req.body.gender;
     var city= req.body.city;
     var country= req.body.country;
-    console.log('firstname', firstname);
-    console.log('lastname', lastname);
-    console.log('gender', gender);
-    console.log('city', city);
-    console.log('country', country);
-    console.log('email', email);
-    console.log('password', password);
-    res.send('sign up successfull');
+    
+        let newUser = new User({
+            firstname:firstname,
+            lastname:lastname,
+            email:email,
+            password:password,
+            gender:gender,
+            city:city,
+            country:country
+          });
+          newUser.save(function(err){
+            if(err){
+              console.log(err);
+              return;
+            } else {
+            console.log('User data added');
+            res.send('Data Uploaded');
+        }    
+    });
 });
 
 // upload page 
