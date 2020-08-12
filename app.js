@@ -60,9 +60,37 @@ app.get('/login', function (req, res) {
     res.render('login');
 });
 
+//login form
+app.post('/login', function (req, res) {
+    var password= req.body.password;
+    var username= req.body.username;
+    console.log('username', username);
+    console.log('password', password);
+    res.send('You are logged in');
+});
+
 // signup page 
 app.get('/signup', function (req, res) {
     res.render('signup');
+});
+
+// post sign up
+app.post('/signup', function (req, res) {
+    var firstname= req.body.firstname;
+    var lastname= req.body.lastname;
+    var email= req.body.email;
+    var password= req.body.password;
+    var gender= req.body.gender;
+    var city= req.body.city;
+    var country= req.body.country;
+    console.log('firstname', firstname);
+    console.log('lastname', lastname);
+    console.log('gender', gender);
+    console.log('city', city);
+    console.log('country', country);
+    console.log('email', email);
+    console.log('password', password);
+    res.send('sign up successfull');
 });
 
 // upload page 
