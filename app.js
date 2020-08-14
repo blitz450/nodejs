@@ -64,10 +64,22 @@ app.get('/login', function (req, res) {
 //login form
 app.post('/login', function (req, res) {
     var password= req.body.password;
-    var username= req.body.username;
-    console.log('username', username);
+    var email= req.body.username;
+    //console.log('username', username);
     console.log('password', password);
-    res.send('You are logged in');
+    User.find({ email: email }, function(err, user){
+        if(err) throw err;
+        if(user.length != 0) {
+            console.log('password', user[0].password);
+            if(user[0].password == password){
+                console.log('user enter password', password);
+                res.redirect('/upload');
+            }else{
+                console.log('password not matched', password);
+                res.redirect('/login');
+            }
+       }
+      });
 });
 
 // signup page 
@@ -97,10 +109,11 @@ app.post('/signup', function (req, res) {
           newUser.save(function(err){
             if(err){
               console.log(err);
+              res.redirect('/signup');
               return;
             } else {
             console.log('User data added');
-            res.send('Data Uploaded');
+            res.redirect('/login');
         }    
     });
 });
