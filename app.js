@@ -13,10 +13,10 @@ const bcrypt = require('bcryptjs');
 const PORT = 3000;
 
 const passport = require('passport');
-const config = require('./config/database');
+const confi = require('./confi/database');
 
 
-mongoose.connect(config.database);
+mongoose.connect(confi.database);
 let db = mongoose.connection;
 
 //check connection
@@ -64,7 +64,7 @@ app.use(function (req, res, next) {
 });
 
 // Passport Config
-require('./config/passport')(passport);
+require('./confi/passport')(passport);
 // Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());
