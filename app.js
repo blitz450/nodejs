@@ -5,22 +5,31 @@ const morgan = require("morgan");
 const app = express();
 const path = require('path');
 const mongoose = require("mongoose");
+const session = require('express-session');
 let Data = require('./models/resource');
 let User = require('./models/users');
+const bcrypt = require('bcryptjs');
 
 const PORT = 3000;
 
-var upload = require('./utils/upload');
+const passport = require('passport');
+const confi = require('./confi/database');
 
-mongoose.connect("mongodb://127.0.0.1:27017", {
-    useNewUrlParser: true
-}, (error) => {
-    if (!error) {
-        console.log("Success Connected!");
-    } else {
-        console.log("Error connecting to database!")
-    }
+
+mongoose.connect(confi.database);
+let db = mongoose.connection;
+
+//check connection
+db.once('open',function(){
+  console.log('Connected to MongoDB');
 });
+
+//check for db errors
+db.on('error', function(err){
+  console.log(err);
+});
+
+var upload = require('./utils/upload');
 
 //use cors
 app.use(cors())
@@ -41,19 +50,39 @@ app.use(express.static('public'))
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//express session middleware
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+}));
+
+//express messages middleware
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
+
+// Passport Config
+require('./confi/passport')(passport);
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 // index page 
 app.get('/', function (req, res) {
-    res.render('index');
+    res.render('index', {user: req.session});
 });
 
 // about page 
 app.get('/about', function (req, res) {
-    res.render('about');
+    console.log('sess',req.session);
+    res.render('about', {user: req.session});
 });
 
 // contact page 
 app.get('/contact', function (req, res) {
-    res.render('contact');
+    res.render('contact', {user: req.session});
 });
 
 // login page 
@@ -62,12 +91,28 @@ app.get('/login', function (req, res) {
 });
 
 //login form
-app.post('/login', function (req, res) {
+app.post('/login', function (req, res, next) {
     var password= req.body.password;
-    var username= req.body.username;
-    console.log('username', username);
+    var email= req.body.username;
+    //console.log('username', username);
     console.log('password', password);
-    res.send('You are logged in');
+  /*  User.find({ email: email }, function(err, user){
+        if(err) throw err;
+        if(user.length != 0) {
+            console.log('password', user[0].password);
+            if(user[0].password == password){
+                console.log('user enter password', password);
+                res.redirect('/upload');
+            }else{
+                console.log('password not matched', password);
+                res.redirect('/login');
+            }
+       }
+      }); */
+      passport.authenticate('local', {
+        successRedirect:'/upload',
+        failureRedirect:'/login',
+      })(req, res, next);
 });
 
 // signup page 
@@ -94,20 +139,34 @@ app.post('/signup', function (req, res) {
             city:city,
             country:country
           });
-          newUser.save(function(err){
-            if(err){
-              console.log(err);
-              return;
-            } else {
-            console.log('User data added');
-            res.send('Data Uploaded');
-        }    
-    });
+          bcrypt.genSalt(10, function(err, salt){
+            bcrypt.hash(newUser.password, salt, function(err, hash){
+              if(err){
+                console.log(err);
+              }
+              newUser.password = hash;
+              newUser.save(function(err){
+                if(err){
+                  console.log(err);
+                  return;
+                } else {
+                  res.redirect('/login');
+                }
+              });
+            });
+          });
 });
 
+// logout
+app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/login');
+  });
+  
+
 // upload page 
-app.get('/upload', function (req, res) {
-    res.render('upload');
+app.get('/upload',ensureAuthenticated, function (req, res) {
+    res.render('upload', {user: req.session});
 });
 
 
@@ -126,6 +185,16 @@ app.post('/upload', upload.single('mypic'), (req, res) => {
     });
 console.log(req.body);
 console.log('Name ', req.file.filename);});
+
+// Access Control
+function ensureAuthenticated(req, res, next){
+    if(req.isAuthenticated()){
+      return next();
+    } else {
+      res.redirect('/login');
+    }
+  }
+  
 
 // catch 404 and forward to error handler
 app.use(function (req, res) {
