@@ -101,11 +101,19 @@ fieldset {
             <div class="container">  
                 
                 <form id="contact"enctype="multipart/form-data" action="/upload" method="post">
-                    <h3>Form</h3>
+					<h3>Form</h3>
+					<fieldset>
+                        <label>Title</label>
+                        <input type="text" name="title" id="title" class="file"  required/>
+					</fieldset><br> 
+					<fieldset>
+						<label>Content</label>
+						<textarea name="content" id="content"   class="file" required></textarea>
+                    </fieldset><br> 
                     <fieldset>
                         <label>Upload Image</label>
                         <input type="file" name="mypic" class="file" accept=".jpg, .png, .jpeg, image/*" required/>
-                    </fieldset>                 
+                    </fieldset><br>              
                     <fieldset>
                         <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Upload</button>
                       </fieldset>              

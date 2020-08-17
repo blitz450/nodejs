@@ -227,8 +227,11 @@ app.get('/upload',ensureAuthenticated, function (req, res) {
 
 // upload post  
 app.post('/upload', upload.single('mypic'), (req, res) => {
-    let data = new Data();
-    data.name = req.file.filename;
+    let data = new Data({
+      title:req.body.title,
+      content:req.body.content,
+      name:req.file.filename
+    });
     data.save(function(err){
       if(err){
         console.log(err);
