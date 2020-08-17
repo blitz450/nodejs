@@ -44,7 +44,7 @@ app.use(bodyParser.json())
 app.use(morgan('dev'))
 
 //use public folder
-app.use(express.static('public'))
+app.use('/public',express.static(path.join(__dirname, 'public')));
 
 // set the view engine to ejs
 app.set('views', path.join(__dirname, 'views'));
