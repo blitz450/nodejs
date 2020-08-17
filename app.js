@@ -75,7 +75,14 @@ app.use(passport.session());
 
 // index page 
 app.get('/', function (req, res) {
-    res.render('index', {user: req.session});
+  Data.find({}, function(err, posts){
+    if(err){
+      console.log(err);
+    }else {
+      console.log('post',posts);
+      res.render('index', {user: req.session, posts:posts});
+   }
+  });
 });
 
 // about page 
