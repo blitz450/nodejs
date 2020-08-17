@@ -1,12 +1,91 @@
-
-    <%- include('partials/header') %>
-    <div class="jumbotron">
-      <h1>Study Resources</h1>
-      <p>Study skills, academic skill, or study strategies are approaches applied to learning. They are generally
-        critical to success in school,[1] considered essential for acquiring good grades, and useful for learning
-        throughout one's life.
-
-        Study skills are an array of skills which tackle the process of organizing and taking in new information,
-        retaining information, or dealing with assessments.</p>
+<%- include('partials/header') %>
+<link rel="stylesheet" href="/public/css/home.css">
+<section id="latest-news" class="front-page-section">
+  <div class="section-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>Latest News</h3>
+        </div>
+        <!--/.col-sm-12-->
+        <div class="col-sm-10 col-sm-offset-1">
+          <div class="section-description">If you are interested in the latest articles in the industry, take a sneak
+            peek at our blog. You have nothing to loose!</div>
+        </div>
+        <!--/.col-sm-10.col-sm-offset-1-->
+      </div>
+      <!--/.row-->
     </div>
-    <%- include('partials/footer') %>
+    <!--/.container-->
+  </div>
+  <!--/.section-header-->
+  <a href="https://colorlib.com/illdy/blog-2/" title="See blog" class="latest-news-button"><i
+      class="fa fa-chevron-circle-right"></i>See blog </a>
+
+  <div class="section-content">
+    <div class="container">
+      <div class="row blog-carousel">
+
+        <div class="illdy-blog-post col-md-4 col-sm-6 col-xs-12">
+          <div class="post">
+            <div class="post-image"
+              style="background-image: url('https://colorlib.com/illdy/wp-content/uploads/sites/11/2016/02/photo-1449168013943-3a15804bb41c-360x213.jpg');">
+            </div>
+            <h5><a href="https://colorlib.com/illdy/we-have-made-illdy-theme-seo-friendly/"
+                title="We Have Made Illdy Theme SEO Friendly" class="post-title">We Have Made Illdy Theme SEO
+                Friendly</a></h5>
+            <div class="post-entry">
+              Illdy One Page WordPress theme is fully SEO friendly and is ready to help you to achieve the highest
+              rankings… </div>
+            <!--/.post-entry-->
+            <a href="https://colorlib.com/illdy/we-have-made-illdy-theme-seo-friendly/" title="Read more"
+              class="post-button"><i class="fa fa-chevron-circle-right"></i>Read more </a>
+          </div>
+          <!--/.post-->
+        </div>
+        <!--/.col-sm-4-->
+
+        <div class="illdy-blog-post col-md-4 col-sm-6 col-xs-12">
+          <div class="post">
+            <div class="post-image"
+              style="background-image: url('https://colorlib.com/illdy/wp-content/uploads/sites/11/2016/02/photo-1450101215322-bf5cd27642fc-360x213.jpg');">
+            </div>
+            <h5><a href="https://colorlib.com/illdy/stunning-one-page-wordpress-theme-masses/"
+                title="Stunning One Page WordPress Theme For Masses" class="post-title">Stunning One Page WordPress
+                Theme For Masses</a></h5>
+            <div class="post-entry">
+              This theme is not just free, it is free for private and commercial use since it is licensed under GPL…
+            </div>
+            <!--/.post-entry-->
+            <a href="https://colorlib.com/illdy/stunning-one-page-wordpress-theme-masses/" title="Read more"
+              class="post-button"><i class="fa fa-chevron-circle-right"></i>Read more </a>
+          </div>
+          <!--/.post-->
+        </div>
+        <!--/.col-sm-4-->
+
+        <div class="illdy-blog-post col-md-4 col-sm-6 col-xs-12">
+          <div class="post">
+            <div class="post-image"
+              style="background-image: url('https://colorlib.com/illdy/wp-content/uploads/sites/11/2016/02/photo-1447687643809-e05fd462f350-360x213.jpg');">
+            </div>
+            <h5><a href="https://colorlib.com/illdy/hello-world/" title="Hello world!" class="post-title">Hello
+                world!</a></h5>
+            <div class="post-entry">
+              Welcome to colorlib.com. This is our&nbsp;first post around Illdy WordPress theme. Now show that you can
+              make out of it.… </div>
+            <!--/.post-entry-->
+            <a href="https://colorlib.com/illdy/hello-world/" title="Read more" class="post-button"><i
+                class="fa fa-chevron-circle-right"></i>Read more </a>
+          </div>
+          <!--/.post-->
+        </div>
+        <!--/.col-sm-4-->
+      </div>
+      <!--/.row-->
+    </div>
+    <!--/.container-->
+  </div>
+  <!--/.section-content-->
+</section>
+<%- include('partials/footer') %>
