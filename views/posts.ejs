@@ -33,7 +33,7 @@
             <div class="post-image"
               style="background-image: url('/public/<%= post.name%>');">
             </div>
-            <h5><a href="/fullpost"
+            <h5><a href="/fullpost/<%= post.id %>"
                 title="We Have Made Illdy Theme SEO Friendly" class="post-title"><% if ( post.title.length >= 21) { %>
                   <%= post.title.slice(0,20) %>...
                <% } else { %>
@@ -45,7 +45,7 @@
                <%= post.content %>
            <% } %></div>
             <!--/.post-entry-->
-            <a href="/fullpost" title="Read more"
+            <a href="/fullpost/<%= post.id %>" title="Read more"
               class="post-button"><i class="fa fa-chevron-circle-right"></i>Read more </a>
           </div>
           <!--/.post-->

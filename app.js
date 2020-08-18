@@ -119,9 +119,13 @@ app.get('/contact', function (req, res) {
 });
 
 //fullpost page
-app.get('/fullpost', function (req, res) {
-  console.log('sess',req.session);
-  res.render('fullpost', {user: req.session});
+app.get('/fullpost/:id', function(req, res ){
+  Data.findById(req.params.id, function(err, post){
+      res.render('fullpost', {
+        post:post,
+        user: req.session
+    });
+  });
 });
 
 //contact form data

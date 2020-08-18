@@ -744,13 +744,13 @@ a:hover, a:focus {
 /* 07. Latest News */
 #latest-news {
 	width: 100%;
-	background-color: #222f36;
+	background-color: #f7f7f7;
 	padding: 75px 0 85px 0;
 	text-align: center;
 }
 #latest-news .section-header h3,
 #latest-news .section-header p {
-    color: #fff;
+    color: #000;
 }
 
 #latest-news .section-header {

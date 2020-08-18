@@ -1,5 +1,5 @@
 .page{
-    width: 600px;
+    width: 900px;
     height: 720px;
     background-color: white;
     box-shadow: 2px 2px 5px 5px #DCDCDC;
@@ -7,7 +7,7 @@
     border: 8px;
     border-top-style: solid;
     border-top-color: black;
-    padding-top: 50px;
+    padding-top: 30px;
     padding-left: 25px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 900;
@@ -51,4 +51,11 @@
     clear:left;
     padding-top:10px;
     padding-right:10px;
+  }
+  .img {
+    float: center;
+    padding-right:22px;
+    padding-top:10px;
+    width: 100%;
+    height: 300px;
   }
