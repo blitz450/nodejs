@@ -277,8 +277,9 @@ app.post('/upload', upload.single('mypic'), (req, res) => {
         console.log(err);
         return;
       } else {
+            console.log('data', req.body);
             console.log('data added');
-            res.send('Uploaded');
+            res.render('/posts/1');
         }    
     });
 console.log(req.body);

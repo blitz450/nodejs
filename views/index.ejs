@@ -1,97 +1,14 @@
 <%- include('partials/header') %>
-<script src="/public/js/slidingcart.js"></script>
+<!--<script src="/public/js/slidingcart.js"></script> -->
 <script src="/public/js/homeindex.js"></script>
-<link rel="stylesheet" href="/public/css/slidingcart.css">
+<!--<link rel="stylesheet" href="/public/css/slidingcart.css"> -->
 <link rel="stylesheet" href="/public/css/homeindex.css">
+<link rel="stylesheet" href="/public/css/cart.css">
 
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span12">
 
-      <div class="page-header">
-        <h3>Bootstrap</h3>
-        <p>Responsive Carousel Demo</p>
-      </div>
 
-      <div class="carousel slide" id="myCarousel">
-        <div class="carousel-inner">
 
-          <div class="item active">
 
-            <div class="bannerImage">
-              <a href="#"><img src="http://placehold.it/960x405" alt=""></a>
-            </div>
-
-            <div class="caption row-fluid">
-              <div class="span4">
-                <h3>Nullam Condimentum Nibh Etiam Sem</h3>
-                <a class="btn btn-mini" href="#">&raquo; Read More</a>
-              </div>
-              <div class="span8">
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Etiam porta
-                  sem malesuada magna mollis euismod. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                  Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-              </div>
-            </div>
-
-          </div><!-- /Slide1 -->
-
-          <div class="item">
-
-            <div class="bannerImage">
-              <a href="#"><img src="http://placehold.it/960x405" alt=""></a>
-            </div>
-
-            <div class="caption row-fluid">
-              <div class="span4">
-                <h3>Nullam Condimentum Nibh Etiam Sem</h3>
-                <a class="btn btn-mini" href="#">&raquo; Read More</a>
-              </div>
-              <div class="span8">
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Etiam porta
-                  sem malesuada magna mollis euismod. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                  Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-              </div>
-            </div>
-
-          </div><!-- /Slide2 -->
-
-          <div class="item">
-
-            <div class="bannerImage">
-              <a href="#"><img src="http://placehold.it/960x405" alt=""></a>
-            </div>
-
-            <div class="caption row-fluid">
-              <div class="span4">
-                <h3>Nullam Condimentum Nibh Etiam Sem</h3>
-                <a class="btn btn-mini" href="#">&raquo; Read More</a>
-              </div>
-              <div class="span8">
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Etiam porta
-                  sem malesuada magna mollis euismod. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                  Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-              </div>
-            </div>
-
-          </div><!-- /Slide2 -->
-
-        </div>
-
-        <div class="control-box">
-          <a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
-          <a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
-        </div><!-- /.control-box -->
-
-      </div><!-- /#myCarousel -->
-
-    </div><!-- /.span12 -->
-  </div><!-- /.row -->
-</div><!-- /.container -->
-
-<!--End of sliding cart-->>
-
-<div class="jumbotron">
   <div id="landing">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <div class="slider slider-1">
@@ -188,7 +105,10 @@
         distributors in to drive installs for your games where Google Play can't</p>
     </div>
 
-    <div class="slider slider-2">
+    
+
+
+  <!--  <div class="slider slider-2">
       <img class="ratio" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7" />
 
       <input class="slide" type="radio" name="slider-2" id="s-2-1" /><label for="s-2-1"></label>
@@ -277,8 +197,40 @@
           margin: 8% 0 0 16%;
         }
       </style>
-    </div>
+    </div> -->
   </div>
-</div>
+  <section id="blog" class="home-section bg-gray">
+    <div class="container">
+      <div class="row">
+          <div class="section-heading">
+            <h2>Blog</h2>
+            <div class="heading-line"></div>
+            <p>Various blog are listed. </p>
+          </div></div>
+	<div class="row">
+		<div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
+            <div class="MultiCarousel-inner">            
+                            <% posts.forEach(function(post) { %>
+                                <div class="item">
+                                    <div class="pad15">
+                                        <p class="lead">
+                                        <img src="/public/<%= post.name%>" alt="Article" >
+                                        <% if (post.title.length >= 29) { %>
+                                          <h6><%= post.title.slice(0,28) %>...</h6>
+                                        <% } else { %>
+                                           <h6><%= post.title %></h6>
+                                        <% } %>
+                                        <a href = "/post/<%= post.id %>" class="stretched-link">Continue reading</a>
+                                        <br>
+                                        </div></div>    
+                            <% }); %>
+            </div>
+            <button class="btn btn-primary leftLst"><</button>
+            <button class="btn btn-primary rightLst">></button>
+    </div></div></div>
+    </div>
+  </section>
+  <script src="/public/js/cart.js"></script>
+
 <%- include('partials/footer') %>
   
