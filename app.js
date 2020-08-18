@@ -118,6 +118,12 @@ app.get('/contact', function (req, res) {
     res.render('contact', {user: req.session});
 });
 
+//fullpost page
+app.get('/fullpost', function (req, res) {
+  console.log('sess',req.session);
+  res.render('fullpost', {user: req.session});
+});
+
 //contact form data
 app.post('/contact', function (req, res) {
   const output = `

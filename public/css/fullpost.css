@@ -1,0 +1,54 @@
+.page{
+    width: 600px;
+    height: 720px;
+    background-color: white;
+    box-shadow: 2px 2px 5px 5px #DCDCDC;
+    margin: auto;
+    border: 8px;
+    border-top-style: solid;
+    border-top-color: black;
+    padding-top: 50px;
+    padding-left: 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 900;
+    font-size:33px;
+  
+  }
+  .category{
+    display: inline;
+    /* width: 70px;
+    height: 15px; */
+    padding: 5px;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    font-size: 13px;
+    font-weight: normal;
+  }
+  h3{
+    font-size:17px;
+    font-weight:900;
+    font-family: 'Open Sans', sans-serif;
+  }
+  h6{
+    font-size:13px;
+    font-weight: normal;
+  
+  }
+  .clear-fix{
+      overflow: right;
+  
+  }
+  .img1 {
+    float: left;
+    padding: 2px;
+    margin: 10px;
+  
+  }
+  .img2{
+    float:right;
+    margin:10px;
+    clear:left;
+    padding-top:10px;
+    padding-right:10px;
+  }
