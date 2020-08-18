@@ -74,7 +74,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // index page 
-/*
+
 app.get('/', function (req, res) {
   Data.find({}, function(err, posts){
     if(err){
@@ -84,10 +84,10 @@ app.get('/', function (req, res) {
       res.render('index', {user: req.session, posts:posts});
    }
   });
-// }); */
+ }); 
 
-app.get('/:page', function(req, res, next) {
-  var perPage = 15
+app.get('/posts/:page', function(req, res, next) {
+  var perPage = 3
   var page = req.params.page || 1
 
   Data
@@ -97,7 +97,7 @@ app.get('/:page', function(req, res, next) {
       .exec(function(err, posts) {
         Data.count().exec(function(err, count) {
               if (err) return next(err)
-              res.render('index', {
+              res.render('posts', {
                   user: req.session,
                   posts: posts,
                   current: page,
