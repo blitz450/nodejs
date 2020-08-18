@@ -74,6 +74,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // index page 
+/*
 app.get('/', function (req, res) {
   Data.find({}, function(err, posts){
     if(err){
@@ -83,7 +84,28 @@ app.get('/', function (req, res) {
       res.render('index', {user: req.session, posts:posts});
    }
   });
-});
+// }); */
+
+app.get('/:page', function(req, res, next) {
+  var perPage = 15
+  var page = req.params.page || 1
+
+  Data
+      .find({})
+      .skip((perPage * page) - perPage)
+      .limit(perPage)
+      .exec(function(err, posts) {
+        Data.count().exec(function(err, count) {
+              if (err) return next(err)
+              res.render('index', {
+                  user: req.session,
+                  posts: posts,
+                  current: page,
+                  pages: Math.ceil(count / perPage)
+              })
+          })
+      })
+})
 
 // about page 
 app.get('/about', function (req, res) {
@@ -141,7 +163,7 @@ app.post('/contact', function (req, res) {
           console.log('Message sent: %s', info.messageId);   
           console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
-          res.redirect('/');
+          res.redirect('/1');
 
        }
     });
