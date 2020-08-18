@@ -1,8 +1,284 @@
+<%- include('partials/header') %>
+<script src="/public/js/slidingcart.js"></script>
+<script src="/public/js/homeindex.js"></script>
+<link rel="stylesheet" href="/public/css/slidingcart.css">
+<link rel="stylesheet" href="/public/css/homeindex.css">
 
-    <%- include('partials/header') %>
-    <div class="jumbotron">
-      <h1>Study Resources</h1>
-      
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+
+      <div class="page-header">
+        <h3>Bootstrap</h3>
+        <p>Responsive Carousel Demo</p>
+      </div>
+
+      <div class="carousel slide" id="myCarousel">
+        <div class="carousel-inner">
+
+          <div class="item active">
+
+            <div class="bannerImage">
+              <a href="#"><img src="http://placehold.it/960x405" alt=""></a>
+            </div>
+
+            <div class="caption row-fluid">
+              <div class="span4">
+                <h3>Nullam Condimentum Nibh Etiam Sem</h3>
+                <a class="btn btn-mini" href="#">&raquo; Read More</a>
+              </div>
+              <div class="span8">
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Etiam porta
+                  sem malesuada magna mollis euismod. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                  Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+              </div>
+            </div>
+
+          </div><!-- /Slide1 -->
+
+          <div class="item">
+
+            <div class="bannerImage">
+              <a href="#"><img src="http://placehold.it/960x405" alt=""></a>
+            </div>
+
+            <div class="caption row-fluid">
+              <div class="span4">
+                <h3>Nullam Condimentum Nibh Etiam Sem</h3>
+                <a class="btn btn-mini" href="#">&raquo; Read More</a>
+              </div>
+              <div class="span8">
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Etiam porta
+                  sem malesuada magna mollis euismod. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                  Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+              </div>
+            </div>
+
+          </div><!-- /Slide2 -->
+
+          <div class="item">
+
+            <div class="bannerImage">
+              <a href="#"><img src="http://placehold.it/960x405" alt=""></a>
+            </div>
+
+            <div class="caption row-fluid">
+              <div class="span4">
+                <h3>Nullam Condimentum Nibh Etiam Sem</h3>
+                <a class="btn btn-mini" href="#">&raquo; Read More</a>
+              </div>
+              <div class="span8">
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Etiam porta
+                  sem malesuada magna mollis euismod. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                  Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+              </div>
+            </div>
+
+          </div><!-- /Slide2 -->
+
+        </div>
+
+        <div class="control-box">
+          <a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
+          <a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
+        </div><!-- /.control-box -->
+
+      </div><!-- /#myCarousel -->
+
+    </div><!-- /.span12 -->
+  </div><!-- /.row -->
+</div><!-- /.container -->
+
+<!--End of sliding cart-->>
+
+<div class="jumbotron">
+  <div id="landing">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <div class="slider slider-1">
+      <img class="ratio" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7" />
+
+      <input class="slide" type="radio" name="slider-1" id="s-1-1" /><label for="s-1-1"></label>
+      <div>
+        <img src="https://developer.playphone.com/App/Landing/img/main-slide-1.png" />
+        <div class="content">
+          <h3>Grow your business globally with Playphone</h3>
+          <p>Maximize distribution and monetization by publishing your games on the leading games-only platform in
+            emerging markets.</p>
+          <a href="#" class="button button-blue">Get Started</a>
+        </div>
+      </div>
+
+      <input class="slide" type="radio" name="slider-1" id="s-1-2" /><label for="s-1-2"></label>
+      <div>
+        <img src="https://developer.playphone.com/App/Landing/img/main-slide-2.png" />
+        <div class="content">
+          <h3>Increase engagement with unique battle and tournament capability</h3>
+          <p>Drive more engagement for your games when players fight it out against one another in battles. When players
+            compete, your game wins!</p>
+          <a href="#" class="button button-orange">Integrate Now</a>
+        </div>
+      </div>
+
+      <input class="slide" type="radio" name="slider-1" id="s-1-3" checked /><label for="s-1-3"></label>
+      <div>
+        <img src="https://developer.playphone.com/App/Landing/img/main-slide-3.png" />
+        <div class="content">
+          <h3>Launch with us in Taiwan this December and watch your revenues grow!</h3>
+          <p>Playphone has partnered with Gamania, the top game publisher in Taiwan, to help monetize your games in the
+            #4 Android gaming market.</p>
+          <a href="#" class="button button">Publish Now</a>
+        </div>
+      </div>
+      <style type="text/css">
+        #landing .slider-1 img.ratio {
+          padding: 0 33%;
+        }
+
+        #landing .slider-1 .content {
+          max-width: 33%;
+          margin: 5% 0 0 18%;
+        }
+
+        #landing .slider-1 .content h3 {
+          color: #fff;
+          font-size: 2.125em;
+          font-weight: normal;
+          margin: 0 0 4%;
+        }
+
+        #landing .slider-1 .content p {
+          color: #fff;
+          font-size: 1.1em;
+          font-weight: normal;
+        }
+
+        #landing .slider-1 .button {
+          position: absolute;
+          bottom: 17%;
+          min-width: 12.5em;
+          font-size: .95em;
+          font-weight: normal;
+          border-width: .14em;
+        }
+      </style>
     </div>
-    <%- include('partials/footer') %>
+
+    <div class="menu">
+      <a href="#">Getting Started</a><a href="#">Create Account</a><a href="#">Download SDK</a><a href="#">Tutorials</a>
+    </div>
+
+    <div class="feature">
+      <img class="picture" src="https://developer.playphone.com/App/Landing/img/feature-1.png" />
+      <h4 class="caption">Built specially for mobile game developers</h4>
+      <p class="summary">The Playphone SDK is built for mobile game developers. It is extremely lightweight and takes
+        minutes to integrate. Further, you need to integrate only once.</p>
+    </div>
+
+    <div class="feature">
+      <img class="picture" src="https://developer.playphone.com/App/Landing/img/feature-2.png" />
+      <h4 class="caption">Reach highly targeted mobile gamers</h4>
+      <p class="summary">Playphone is a games-only network fostering an ecosystem of highly qualified users that love
+        playing mobile games. You won't find a better way to reach untapped mobile gamers globally</p>
+    </div>
+
+    <div class="feature">
+      <img class="picture" src="https://developer.playphone.com/App/Landing/img/feature-3.png" />
+      <h4 class="caption">Go beyond Google Play</h4>
+      <p class="summary">In high-growth emerging markets, we partner with the leading local OEMs, carriers and
+        distributors in to drive installs for your games where Google Play can't</p>
+    </div>
+
+    <div class="slider slider-2">
+      <img class="ratio" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7" />
+
+      <input class="slide" type="radio" name="slider-2" id="s-2-1" /><label for="s-2-1"></label>
+      <div>
+        <img src="https://developer.playphone.com/App/Landing/img/main-slide-4.png" />
+        <div class="content">
+          <h3>What they say</h3>
+          <p>
+            Integration the Playphone SDK
+            was extremely developer friendly.
+            It's lean and easy to integrate and
+            test. We got it out there in less
+            than a day.
+          </p>
+          <small>
+            Alok Kumar<br />
+            Director of game development<br />
+            June Software Inc
+          </small>
+        </div>
+      </div>
+
+      <input class="slide" type="radio" name="slider-2" id="s-2-2" checked /><label for="s-2-2"></label>
+      <div>
+        <img src="https://developer.playphone.com/App/Landing/img/main-slide-5.png" />
+        <div class="content">
+          <h3>What they say</h3>
+          <p>
+            Playphone integration has been easy with its
+            simple SDK and we've been able to leverage its
+            real-time dashboard to show results immediately.
+            Playphone's support team is very efficient and is
+            always available with answers and advice.
+            Because of our Leaderboard integration we are
+            seeing strong revenue conversion %'s.
+          </p>
+          <small>
+            Kevin Roberts<br />
+            CEO<br />
+            Mobile Mob
+          </small>
+        </div>
+      </div>
+      <style type="text/css">
+        #landing .slider-2 img.ratio {
+          padding: 0 30.4%;
+        }
+
+        #landing .slider-2 {
+          margin-top: 6em;
+        }
+
+        #landing .slider-2 .content h3 {
+          font-size: 1.125em;
+          margin: 0 0 3em;
+          color: #99ce45;
+          text-transform: uppercase;
+          font-weight: normal;
+        }
+
+        #landing .slider-2 .content p {
+          font-size: 1.3em;
+          color: #fff;
+        }
+
+        #landing .slider-2 .content small {
+          font-size: 1.125em;
+          margin: 3em 0 0;
+          display: block;
+          color: #fff;
+          text-transform: uppercase;
+          font-weight: normal;
+        }
+
+        #landing .slider-2 #s-2-1+label+div>.content {
+          max-width: 30%;
+          margin: 8% 0 0 17%;
+        }
+
+        #landing .slider-2 #s-2-1+label+div>.content p {
+          font-size: 1.6em
+        }
+
+        #landing .slider-2 #s-2-2+label+div>.content {
+          max-width: 35%;
+          margin: 8% 0 0 16%;
+        }
+      </style>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>
   
