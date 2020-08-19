@@ -88,7 +88,7 @@ app.get('/', function (req, res) {
  }); 
 
 app.get('/posts/:page', function(req, res, next) {
-  var perPage = 3
+  var perPage = 15
   var page = req.params.page || 1
 
   Data
