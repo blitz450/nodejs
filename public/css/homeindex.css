@@ -179,7 +179,7 @@ html, body {margin:0; padding:0;}
   padding:0 1em;
   text-align:center;
   text-transform:uppercase;
-  background:#01affe;
+  background:#003300;
   color:#fff;
   cursor:pointer;
   margin-left:-.4em;
@@ -226,7 +226,7 @@ html, body {margin:0; padding:0;}
   width:0;
   opacity:0;
   z-index:100;
-  background:#0097db;
+  background:#003300;
   height:2px;
   transition:width 6.8s linear, opacity 3s 1s linear;
   box-shadow:0 0 2px rgba(0,0,0,.5);
