@@ -41,7 +41,7 @@ body{
 }
 .about .left h1{
    text-align:center;
-   color:#1EADFF;
+   color:#003300;
    margin:0 0 10px 0;
 }
 .about .left hr{
@@ -50,7 +50,7 @@ body{
    border-bottom:none;
 }
 .about .left p{
-   font-size:1rem;
+   font-size:2rem;
    margin:40px auto;
    width:80%
 }
@@ -78,7 +78,7 @@ body{
 }
 .mission .right h1{
    text-align:center;
-   color:#1EADFF;
+   color:#003300;
    margin:0 0 20px 0;
 }
 .mission .right hr{
@@ -87,7 +87,7 @@ body{
    border-bottom:none;
 }
 .mission .right p{
-   font-size:1rem;
+   font-size:2rem;
    margin:40px auto;
    width:80%
 }
