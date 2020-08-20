@@ -82,6 +82,7 @@
 #about-main .jumbotron .img-layer-container .team-image img {
   position: relative;
   z-index: 3;
+  border-radius: 50%;
 }
 #about-main .jumbotron .img-layer-container .circles-container {
   position: absolute;
@@ -111,17 +112,18 @@
 }
 #about-main .jumbotron .jumbotron-inner .top-box .content-box {
   margin: 0 50px 35px;
+  background-color: #c9df8a;
 }
 #about-main .jumbotron .jumbotron-inner .top-box .content-box h1 {
   text-align: center;
-  color: #fff;
+  color: #003300;
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 #about-main .jumbotron .jumbotron-inner .top-box .content-box p {
   text-align: center;
-  color: #6f7782;
+  color: #003300;
   font-size: 18px;
   font-weight: 500;
   margin: 0;
@@ -151,6 +153,7 @@
 @media (max-width: 1000px) {
   #about-main .jumbotron .img-layer-container {
     width: 100%;
+    border-radius: 50%;
   }
 }
 @media (max-width: 815px) {
@@ -224,12 +227,12 @@
   margin: 50px auto;
 }
 #about-main .story-container .need-for-dx-container h3, #about-main .story-container .our-tech-container h3, #about-main .story-container .origin-story-container h3, #about-main .story-container .today-container h3 {
-  color: #074e8c;
+  color: #003300;
 }
 #about-main .story-container .need-for-dx-container p, #about-main .story-container .our-tech-container p, #about-main .story-container .origin-story-container p, #about-main .story-container .today-container p {
-  font-size: 15px;
+  font-size: 18px;
   margin-top: 20px;
-  color: #676a6c;
+  color: #0e1111;
 }
 @media (max-width: 640px) {
   #about-main .story-container .need-for-dx-container p, #about-main .story-container .our-tech-container p, #about-main .story-container .origin-story-container p, #about-main .story-container .today-container p {
