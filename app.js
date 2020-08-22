@@ -14,22 +14,22 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const passport = require('passport');
 const confi = require('./confi/database');
 
 
-mongoose.connect(confi.database);
+mongoose.connect(process.env.databaseString || confi.database);
 let db = mongoose.connection;
 
 //check connection
-db.once('open',function(){
+db.once('open', function () {
   console.log('Connected to MongoDB');
 });
 
 //check for db errors
-db.on('error', function(err){
+db.on('error', function (err) {
   console.log(err);
 });
 
@@ -41,7 +41,7 @@ app.use(cors())
 
 //use body-parser
 app.use(bodyParser.urlencoded({
-    extended: false
+  extended: false
 }))
 app.use(bodyParser.json())
 
@@ -49,7 +49,7 @@ app.use(bodyParser.json())
 app.use(morgan('dev'))
 
 //use public folder
-app.use('/public',express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // set the view engine to ejs
 app.set('views', path.join(__dirname, 'views'));
@@ -77,54 +77,54 @@ app.use(passport.session());
 // index page 
 
 app.get('/', function (req, res) {
-  Data.find({}, function(err, posts){
-    if(err){
+  Data.find({}, function (err, posts) {
+    if (err) {
       console.log(err);
-    }else {
-      console.log('post',posts);
-      res.render('index', {user: req.session, posts:posts});
-   }
+    } else {
+      console.log('post', posts);
+      res.render('index', { user: req.session, posts: posts });
+    }
   });
- }); 
+});
 
-app.get('/posts/:page', function(req, res, next) {
+app.get('/posts/:page', function (req, res, next) {
   var perPage = 15
   var page = req.params.page || 1
 
   Data
-      .find({})
-      .skip((perPage * page) - perPage)
-      .limit(perPage)
-      .exec(function(err, posts) {
-        Data.count().exec(function(err, count) {
-              if (err) return next(err)
-              res.render('posts', {
-                  user: req.session,
-                  posts: posts,
-                  current: page,
-                  pages: Math.ceil(count / perPage)
-              })
-          })
+    .find({})
+    .skip((perPage * page) - perPage)
+    .limit(perPage)
+    .exec(function (err, posts) {
+      Data.count().exec(function (err, count) {
+        if (err) return next(err)
+        res.render('posts', {
+          user: req.session,
+          posts: posts,
+          current: page,
+          pages: Math.ceil(count / perPage)
+        })
       })
+    })
 })
 
 // about page 
 app.get('/about', function (req, res) {
-    console.log('sess',req.session);
-    res.render('about', {user: req.session});
+  console.log('sess', req.session);
+  res.render('about', { user: req.session });
 });
 
 // contact page 
 app.get('/contact', function (req, res) {
-    res.render('contact', {user: req.session});
+  res.render('contact', { user: req.session });
 });
 
 //fullpost page
-app.get('/fullpost/:id', function(req, res ){
-  Data.findById(req.params.id, function(err, post){
-      res.render('fullpost', {
-        post:post,
-        user: req.session
+app.get('/fullpost/:id', function (req, res) {
+  Data.findById(req.params.id, function (err, post) {
+    res.render('fullpost', {
+      post: post,
+      user: req.session
     });
   });
 });
@@ -148,15 +148,15 @@ app.post('/contact', function (req, res) {
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-        user: process.env.mailing_email, // generated ethereal user
-        pass: process.env.mailing_email_password  // generated ethereal password
+      user: process.env.mailing_email, // generated ethereal user
+      pass: process.env.mailing_email_password  // generated ethereal password
     },
-    tls:{
-      rejectUnauthorized:false
+    tls: {
+      rejectUnauthorized: false
     }
   });
 
-    // setup email data with unicode symbols
+  // setup email data with unicode symbols
   let mailOptions = {
     from: `"Team-NJ2" <${process.env.mailing_email}>`, // sender address
     to: process.env.recipient_email, // list of receivers
@@ -167,30 +167,30 @@ app.post('/contact', function (req, res) {
 
   // send mail with defined transport object
   transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-          return console.log(error);
-       } else {
+    if (error) {
+      return console.log(error);
+    } else {
 
-          console.log('Message sent: %s', info.messageId);   
-          console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+      console.log('Message sent: %s', info.messageId);
+      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
-          res.redirect('/1');
+      res.redirect('/');
 
-       }
-    });
+    }
+  });
 })
 
 // login page 
 app.get('/login', function (req, res) {
-    res.render('login');
+  res.render('login');
 });
 
 //login form
 app.post('/login', function (req, res, next) {
-    var password= req.body.password;
-    var email= req.body.username;
-    //console.log('username', username);
-    console.log('password', password);
+  var password = req.body.password;
+  var email = req.body.username;
+  //console.log('username', username);
+  console.log('password', password);
   /*  User.find({ email: email }, function(err, user){
         if(err) throw err;
         if(user.length != 0) {
@@ -204,109 +204,110 @@ app.post('/login', function (req, res, next) {
             }
        }
       }); */
-      passport.authenticate('local', {
-        successRedirect:'/upload',
-        failureRedirect:'/login',
-      })(req, res, next);
+  passport.authenticate('local', {
+    successRedirect: '/upload',
+    failureRedirect: '/login',
+  })(req, res, next);
 });
 
 // signup page 
 app.get('/signup', function (req, res) {
-    res.render('signup');
+  res.render('signup');
 });
 
 // post sign up
 app.post('/signup', function (req, res) {
-    var firstname= req.body.firstname;
-    var lastname= req.body.lastname;
-    var email= req.body.email;
-    var password= req.body.password;
-    var gender= req.body.gender;
-    var city= req.body.city;
-    var country= req.body.country;
-    
-        let newUser = new User({
-            firstname:firstname,
-            lastname:lastname,
-            email:email,
-            password:password,
-            gender:gender,
-            city:city,
-            country:country
-          });
-          bcrypt.genSalt(10, function(err, salt){
-            bcrypt.hash(newUser.password, salt, function(err, hash){
-              if(err){
-                console.log(err);
-              }
-              newUser.password = hash;
-              newUser.save(function(err){
-                if(err){
-                  console.log(err);
-                  return;
-                } else {
-                  res.redirect('/login');
-                }
-              });
-            });
-          });
+  var firstname = req.body.firstname;
+  var lastname = req.body.lastname;
+  var email = req.body.email;
+  var password = req.body.password;
+  var gender = req.body.gender;
+  var city = req.body.city;
+  var country = req.body.country;
+
+  let newUser = new User({
+    firstname: firstname,
+    lastname: lastname,
+    email: email,
+    password: password,
+    gender: gender,
+    city: city,
+    country: country
+  });
+  bcrypt.genSalt(10, function (err, salt) {
+    bcrypt.hash(newUser.password, salt, function (err, hash) {
+      if (err) {
+        console.log(err);
+      }
+      newUser.password = hash;
+      newUser.save(function (err) {
+        if (err) {
+          console.log(err);
+          return;
+        } else {
+          res.redirect('/login');
+        }
+      });
+    });
+  });
 });
 
 // logout
-app.get('/logout', function(req, res){
-    req.logout();
-    res.redirect('/login');
-  });
-  
+app.get('/logout', function (req, res) {
+  req.logout();
+  res.redirect('/login');
+});
+
 
 // upload page 
-app.get('/upload',ensureAuthenticated, function (req, res) {
-    res.render('upload', {user: req.session});
+app.get('/upload', ensureAuthenticated, function (req, res) {
+  res.render('upload', { user: req.session });
 });
 
 
 // upload post  
-app.post('/upload', upload.single('mypic'), (req, res) => {
-    let data = new Data({
-      title:req.body.title,
-      content:req.body.content,
-      name:req.file.filename
-    });
-    data.save(function(err){
-      if(err){
-        console.log(err);
-        return;
-      } else {
-            console.log('data', req.body);
-            console.log('data added');
-            res.render('/posts/1');
-        }    
-    });
-console.log(req.body);
-console.log('Name ', req.file.filename);});
+app.post('/upload', upload.single('myfile'), (req, res) => {
+  let data = new Data({
+    title: req.body.title,
+    content: req.body.content,
+    name: req.file.filename
+  });
+  data.save(function (err) {
+    if (err) {
+      console.log(err);
+      return;
+    } else {
+      console.log('data', req.body);
+      console.log('data added');
+      res.redirect('/posts/1');
+    }
+  });
+  console.log(req.body);
+  console.log('Name ', req.file.filename);
+});
 
 // Access Control
-function ensureAuthenticated(req, res, next){
-    if(req.isAuthenticated()){
-      return next();
-    } else {
-      res.redirect('/login');
-    }
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    res.redirect('/login');
   }
-  
+}
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res) {
-    res.render('404');
+  res.render('404');
 });
 
 // server error 500
-app.use(function(error, req, res) {
-    res.status(500);
+app.use(function (error, req, res) {
+  res.status(500);
   res.render('error');
-  });
+});
 
 //connect to port
 app.listen(PORT, () => {
-    console.log(`Listening on PORT ${PORT}`);
+  console.log(`Listening on PORT ${PORT}`);
 });

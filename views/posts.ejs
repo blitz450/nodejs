@@ -19,70 +19,69 @@
     <!--/.container-->
   </div>
   <!--/.section-header-->
- <!-- <a href="https://colorlib.com/illdy/blog-2/" title="See blog" class="latest-news-button"><i
+  <!-- <a href="https://colorlib.com/illdy/blog-2/" title="See blog" class="latest-news-button"><i
       class="fa fa-chevron-circle-right"></i>See blog </a> -->
 
   <div class="section-content">
     <div class="container">
       <div class="row blog-carousel">
-       <% if(posts.length!=0){
+        <% if(posts.length!=0){
           posts.forEach(function(post){
           %>
         <div class="illdy-blog-post col-md-4 col-sm-6 col-xs-12">
           <div class="post">
-            <div class="post-image"
-              style="background-image: url('/public/<%= post.name%>');">
+            <div class="post-image" style="background-image: url('/public/<%= post.name%>');">
             </div>
-            <h5><a href="/fullpost/<%= post.id %>"
-                title="We Have Made Illdy Theme SEO Friendly" class="post-title"><% if ( post.title.length >= 21) { %>
-                  <%= post.title.slice(0,20) %>...
-               <% } else { %>
-                   <%= post.title %>
-               <% } %></a></h5>
+            <h5><a href="/fullpost/<%= post.id %>" title="title"
+                class="post-title"><% if ( post.title.length >= 21) { %>
+                <%= post.title.slice(0,20) %>...
+                <% } else { %>
+                <%= post.title %>
+                <% } %></a></h5>
             <div class="post-entry"><% if ( post.content.length >= 101) { %>
               <%= post.content.slice(0,100) %>...
-           <% } else { %>
-               <%= post.content %>
-           <% } %></div>
+              <% } else { %>
+              <%= post.content %>
+              <% } %></div>
             <!--/.post-entry-->
-            <a href="/fullpost/<%= post.id %>" title="Read more"
-              class="post-button"><i class="fa fa-chevron-circle-right"></i>Read more </a>
+            <a href="/fullpost/<%= post.id %>" title="Read more" class="post-button"><i
+                class="fa fa-chevron-circle-right"></i>Read more </a>
           </div>
           <!--/.post-->
         </div>
         <!--/.col-sm-4-->
-<%})}%>
- <!--/.col-sm-4-->
-</div>
-<% if (pages > 0) { %>
-  <ul class="pagination text-center">
-      <% if (current == 1) { %>
-          <li class="disabled"><a>First</a></li>
-      <% } else { %>
-          <li><a href="/1">First</a></li>
+        <%})}%>
+        <!--/.col-sm-4-->
+      </div>
+      <% if (pages > 0) { %>
+      <ul class="pagination text-center">
+        <% if (current == 1) { %>
+        <li class="disabled"><a>First</a></li>
+        <% } else { %>
+        <li><a href="/1">First</a></li>
+        <% } %>
+        <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+        <% if (i !== 1) { %>
+        <li class="disabled"><a>...</a></li>
+        <% } %>
+        <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+        <% if (i == current) { %>
+        <li class="active"><a><%= i %></a></li>
+        <% } else { %>
+        <li><a href="/posts/<%= i %>"><%= i %></a></li>
+        <% } %>
+        <% if (i == Number(current) + 4 && i < pages) { %>
+        <li class="disabled"><a>...</a></li>
+        <% } %>
+        <% } %>
+        <% if (current == pages) { %>
+        <li class="disabled"><a>Last</a></li>
+        <% } else { %>
+        <li><a href="/posts/<%= pages %>">Last</a></li>
+        <% } %>
+      </ul>
       <% } %>
-      <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
-      <% if (i !== 1) { %>
-          <li class="disabled"><a>...</a></li>
-      <% } %>
-      <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
-          <% if (i == current) { %>
-              <li class="active"><a><%= i %></a></li>
-          <% } else { %>
-              <li><a href="/posts/<%= i %>"><%= i %></a></li>
-          <% } %>
-          <% if (i == Number(current) + 4 && i < pages) { %>
-              <li class="disabled"><a>...</a></li>
-          <% } %>
-      <% } %>
-      <% if (current == pages) { %>
-          <li class="disabled"><a>Last</a></li>
-      <% } else { %>
-          <li><a href="/posts/<%= pages %>">Last</a></li>
-      <% } %>
-  </ul>
-<% } %>
-      
+
       <!--/.row-->
     </div>
     <!--/.container-->

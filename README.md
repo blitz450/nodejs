@@ -1,7 +1,7 @@
 # Team 2 - Nodejs
 
 ## Overview
-All the participants must go through all the issues & merged PR's to catch up with the working of the application.
+This project aims to provide a Resources-Hub to users letting them upload, share , and acess educational articles and documents etc.
 
 ## Contribution
 The participants can voulenteer to work on any unassigned issue by comment on it. If there are still any unassigned issues left, the mentors will assign it to the participants randomly. 
