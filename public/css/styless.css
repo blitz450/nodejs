@@ -19,13 +19,13 @@
 }
 @media screen and (max-width: 640px) {
 	.main-content{width: 90%;}
-	.company__info{
+	/* .company__info{
 		display: none;
-	}
-	.login_form{
+	} */
+	/* .login_form{
 		border-top-left-radius:20px;
 		border-bottom-left-radius:20px;
-	}
+	} */
 }
 @media screen and (min-width: 642px) and (max-width:800px){
 	.main-content{width: 70%;}
