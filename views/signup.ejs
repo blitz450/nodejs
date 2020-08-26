@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Study Resources</title>
   <meta charset="utf-8">
@@ -14,72 +14,77 @@
 </head>
 <link href="/public/css/styless.css" rel="stylesheet">
 
-<body style="background-color: rgba(53, 213, 235, 0.233);">
-	<!-- Main Content -->
-	<div class="container-fluid" style="padding-top: 40px;">
-		<div class="row main-content bg-success text-center" >
+<body style="background-color: #f5f5f5;">
+  <!-- Main Content -->
+  <div class="container-fluid" style="padding-top: 40px;">
+    <div class="row main-content bg-success text-center">
       <div class="col-md-4 text-center company__info">
-        <a href="/"> <span class="company__logo"><h4 style="color: white;"><i class="fa fa-home" aria-hidden="true"></i></h4></span>
-        <h4 class="company_title" style="color: white;">Home Page</h4></a>
-			</div>
-			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
-				<div class="container-fluid">
-         
-					<div class="row">
-						<h2>Sign Up</h2>
-					</div>
-					<div class="row">
-						<form class="form-group" id="login-form" method="post" action="/signup">
-							<div class="row">
-                <input type="text"class="form__input" name="firstname" id="firstname" placeholder="First Name" required>
+        <a href="/"> <span class="company__logo">
+            <h4 style="color: white;"><i class="fa fa-home" aria-hidden="true"></i></h4>
+          </span>
+          <h4 class="company_title" style="color: white;">Home Page</h4>
+        </a>
+      </div>
+      <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+        <div class="container-fluid">
+
+          <div class="row">
+            <h2>Sign Up</h2>
+          </div>
+          <div class="row">
+            <form class="form-group" id="login-form" method="post" action="/signup">
+              <div class="row">
+                <input type="text" class="form__input" name="firstname" id="firstname" placeholder="First Name"
+                  required>
               </div>
               <div class="row">
-                <input type="text"class="form__input" name="lastname" id="lastname" placeholder="Last Name" required>
+                <input type="text" class="form__input" name="lastname" id="lastname" placeholder="Last Name" required>
               </div>
               <div class="row">
                 <label class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="gender" value="Male" >
-                      <span class="form-check-label"> Male </span>
-                    </label>
-                    <label class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="gender" value="Female">
-                      <span class="form-check-label"> Female</span>
-                    </label>
+                  <input class="form-check-input" type="radio" name="gender" value="Male">
+                  <span class="form-check-label"> Male </span>
+                </label>
+                <label class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" value="Female">
+                  <span class="form-check-label"> Female</span>
+                </label>
               </div>
               <div class="row">
-                <input type="email" class="form__input" name="email" id="email" placeholder="Your Email Address" required>
+                <input type="email" class="form__input" name="email" id="email" placeholder="Your Email Address"
+                  required>
               </div><br>
               <div class="row">
-              <div class="form-group col-md-6">
-                <input type="text" class="form__input" name="city" id="city" placeholder="Your City" required>
-              </div> <!-- form-group end.// -->
-               <div class="form-group col-md-6">
-                <input type="text" class="form__input" name="country" id="country" placeholder="Country" required>
-              </div></div>
-     
-							<div class="row">
-                <!-- <span class="fa fa-lock"></span> -->
-                <input class="form__input"" type="password" name="password" id="password" placeholder="Password"required>
+                <div class="form-group col-md-6">
+                  <input type="text" class="form__input" name="city" id="city" placeholder="Your City" required>
+                </div> <!-- form-group end.// -->
+                <div class="form-group col-md-6">
+                  <input type="text" class="form__input" name="country" id="country" placeholder="Country" required>
+                </div>
+              </div>
 
-							</div>
-							<!--<div class="row">
+              <div class="row">
+                <!-- <span class="fa fa-lock"></span> -->
+                <input class="form__input"" type=" password" name="password" id="password" placeholder="Password"
+                  required>
+
+              </div>
+              <!--<div class="row">
 								<input type="checkbox" name="remember_me" id="remember_me" class="">
 								<label for="remember_me">Remember Me!</label>
 							</div> -->
-							<div class="row">
-								<input type="submit" value="Submit" class="btn">
-							</div>
-						</form>
-					</div>
+              <div class="row">
+                <input type="submit" value="Submit" class="btn">
+              </div>
+            </form>
+          </div>
           <div class="row">
-						<p>Already have an account? <a href="/login">Login Here</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Footer -->
-	
+            <p>Already have an account? <a href="/login">Login Here</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+
 </body>
-
-
