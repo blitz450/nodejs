@@ -2,8 +2,10 @@
 
 ## Overview
 This project aims to provide a Resources-Hub to users letting them upload, share , and acess educational articles, documents etc.
+
+https://uplift-education-hub.herokuapp.com/
  
-## How to run?
+## How to run locally?
 1. Clone this repo:
 	```
 	git clone <https://github.com/blitz450/nodejs.git>
